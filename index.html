@@ -1,53 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Hamid Id Azzi – Resume</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
-      line-height: 1.6;
-      color: #333;
-    }
-    h1, h2 {
-      color: #0073e6;
-    }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
-    }
-    .section {
-      margin-bottom: 25px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    a {
-      color: #0073e6;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>Hamid Id Azzi</h1>
-  <p>
-    📍 Cincinnati, OH<br>
-    📧 your_email@example.com<br>
-    🔗 <a href="https://github.com/idazzihamid" target="_blank">GitHub</a> |
-    <a href="https://linkedin.com/in/YOUR-LINK" target="_blank">LinkedIn</a>
-  </p>
-<!DOCTYPE html>
-<html lang="en">
-<head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Hamid Id Azzi – Resume</title>
@@ -59,52 +12,112 @@
       padding: 30px;
       line-height: 1.6;
       color: #333;
+      background-color: var(--bg);
+      transition: background-color 0.3s, color 0.3s;
     }
-    h1, h2 {
-      color: #0073e6;
+    h1 {
+      color: #0d6efd;
+      font-size: 2.5rem;
+      text-align: center;
     }
-    hr {
-      border: none;
-      border-top: 1px solid #ccc;
-      margin: 20px 0;
+    h2 {
+      color: #0d6efd;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 5px;
     }
     .section {
-      margin-bottom: 30px;
+      margin-bottom: 35px;
     }
     ul {
       padding-left: 20px;
     }
     a {
-      color: #0073e6;
+      color: #0d6efd;
       text-decoration: none;
     }
     a:hover {
       text-decoration: underline;
     }
+    .contact {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .download {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    .project-toggle {
+      cursor: pointer;
+      color: #0d6efd;
+      font-weight: bold;
+    }
+    .project-list {
+      display: none;
+    }
+    .theme-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      cursor: pointer;
+      font-weight: bold;
+    }
   </style>
+  <script>
+    function toggleProjects() {
+      const list = document.getElementById('project-list');
+      list.style.display = list.style.display === 'none' ? 'block' : 'none';
+    }
+
+    function toggleTheme() {
+      const root = document.documentElement;
+      const current = root.style.getPropertyValue('--bg');
+      if (current === '#fff') {
+        root.style.setProperty('--bg', '#222');
+        document.body.style.color = '#ddd';
+      } else {
+        root.style.setProperty('--bg', '#fff');
+        document.body.style.color = '#333';
+      }
+    }
+
+    window.onload = () => {
+      document.documentElement.style.setProperty('--bg', '#fff');
+    }
+  </script>
 </head>
 <body>
 
+  <div class="theme-toggle" onclick="toggleTheme()">
+    Toggle Theme
+  </div>
+
   <h1>Hamid Id Azzi</h1>
-  <p>
-    📍 921 Tracy PL, Mason, OH 45040<br>
-    📞 (513) 399-4675<br>
-    📧 <a href="mailto:idazzihamid@gmail.com">idazzihamid@gmail.com</a><br>
-    🔗 <a href="https://github.com/idazzihamid" target="_blank">GitHub</a> |
-    <a href="https://linkedin.com/in/YOUR-LINK" target="_blank">LinkedIn</a>
-  </p>
+  <div class="contact">
+    <p>
+      📍 921 Tracy PL, Mason, OH 45040<br>
+      📞 (513) 399-4675<br>
+      📧 <a href="mailto:idazzihamid@gmail.com">idazzihamid@gmail.com</a><br>
+      🔗 <a href="https://github.com/idazzihamid" target="_blank">GitHub</a> |
+      <a href="https://linkedin.com/in/YOUR-LINK" target="_blank">LinkedIn</a>
+    </p>
+  </div>
 
-  <p>
-    📄 <a href="Hamid_Resume.docx" target="_blank">Download My Resume (Word)</a>
-  </p>
-
-  <hr>
+  <div class="download">
+    📄 <a href="Hamid_Resume.docx" target="_blank">Download Resume (Word)</a> |
+    <a href="Hamid_Resume.pdf" target="_blank">Download Resume (PDF)</a>
+  </div>
 
   <div class="section">
     <h2>Summary Statement</h2>
-    <p>
-      Detail-oriented and adaptable IT Specialist with experience in system administration, customer support, and service management. Skilled in diagnosing and resolving hardware, software, and network issues. CompTIA training (A+, Network+, Security+). Master’s in Data Analytics.
-    </p>
+    <p>Detail-oriented and adaptable IT Specialist with experience in system administration, customer support, and service management. Skilled in diagnosing and resolving hardware, software, and network issues. CompTIA training (A+, Network+, Security+). Master’s in Data Analytics.</p>
+  </div>
+
+  <div class="section">
+    <h2 class="project-toggle" onclick="toggleProjects()">Projects (click to show/hide)</h2>
+    <ul id="project-list" class="project-list">
+      <li><a href="https://github.com/idazzihamid/customer-sales-analysis" target="_blank">Customer Sales Analysis</a> – SQL, Excel, and data visualization using real retail data.</li>
+      <li><a href="https://github.com/idazzihamid/hospital-sql-project" target="_blank">Hospital SQL Project</a> – Complex joins, filtering, and performance analysis in SQL.</li>
+    </ul>
   </div>
 
   <div class="section">
@@ -134,27 +147,17 @@
       <li>Provided technical troubleshooting, customer support, and training</li>
       <li>Handled installation, configuration, and maintenance of systems</li>
     </ul>
-
     <p><strong>Arabic Instructor</strong> – Cincilingua, OH (2012–2014)</p>
-    <ul>
-      <li>Taught Arabic language and culture to adult learners</li>
-    </ul>
-
+    <ul><li>Taught Arabic language and culture to adult learners</li></ul>
     <p><strong>Economics Instructor</strong> – University Ibn Zohr, Morocco (2012–2013)</p>
-    <ul>
-      <li>Planned lessons and graded student performance</li>
-    </ul>
-
+    <ul><li>Planned lessons and graded student performance</li></ul>
     <p><strong>Franchise Director</strong> – Wafa Salaf, Morocco (2009–2013)</p>
     <ul>
       <li>Oversaw all financial and operational aspects</li>
       <li>Managed loans, contracts, and compliance</li>
     </ul>
-
     <p><strong>Account Manager</strong> – Credit of Morocco (2012–2014)</p>
-    <ul>
-      <li>Managed high-value banking clients and personal loans</li>
-    </ul>
+    <ul><li>Managed high-value banking clients and personal loans</li></ul>
   </div>
 
   <div class="section">
@@ -187,4 +190,3 @@
 
 </body>
 </html>
-"<!-- force rebuild -->" 
